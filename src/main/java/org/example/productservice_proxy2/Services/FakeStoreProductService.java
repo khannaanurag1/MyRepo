@@ -56,8 +56,16 @@ public class FakeStoreProductService implements IProductService {
         return getProduct(fakeStoreClientProductDtoResponseEntity.getBody());
     }
 
+//    public Product updateProductUsingInBuiltMethod(Product product, Long productId) {
+//        RestTemplate restTemplate = restTemplateBuilder.build();
+//        FakeStoreClientProductDto fakeStoreClientProductDto = getFakeStoreProduct(product);
+//        FakeStoreClientProductDto fakeStoreClientProductDto1 = restTemplate.patchForObject("https://fakestoreapi.com/products",fakeStoreClientProductDto, FakeStoreClientProductDto.class);
+//        return getProduct(fakeStoreClientProductDto1);
+//    }
+
     @Override
     public Product updateProduct(Product product, Long productId) {
+//        return updateProductUsingInBuiltMethod(product,productId); WILL NOT WORK, GIVE RUNTIME EXCEPTION 404 NOT FOUND
         FakeStoreClientProductDto fakeStoreClientProductDto = getFakeStoreProduct(product);
         ResponseEntity<FakeStoreClientProductDto> fakeStoreClientProductDtoResponseEntity = patchForEntity(HttpMethod.PATCH,
                 "https://fakestoreapi.com/products/{id}",
@@ -73,6 +81,7 @@ public class FakeStoreProductService implements IProductService {
     public String deleteProduct(Long id) {
         return null;
     }
+
 
     public <T> ResponseEntity<T> patchForEntity(HttpMethod httpMethod,String url, @Nullable Object request, Class<T> responseType, Object... uriVariables) throws RestClientException {
         RestTemplate restTemplate = restTemplateBuilder.build();

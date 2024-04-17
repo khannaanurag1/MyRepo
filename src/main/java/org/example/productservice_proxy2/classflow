@@ -1,0 +1,48 @@
+
+
+[IPAD]
+ - Discuss about which Dtos and Models we have
+
+ - Taking an example of createProduct, what's return type in controller and service and what it should be actually
+
+ - Telling which mappers will be needed and where should they lie
+
+
+[LAPTOP]
+ - Write Mapper for ProductDto to product and call it before calling service method
+
+ - Write Product to FakeStoreProductDto Mapper and call it before RestTemplate Call actually
+
+
+[LAPTOP]
+ - Implement putForEntity
+
+
+[LAPTOP]
+ - Discuss about NEED of client for  building resttemplate and calling rest api
+
+ - Put getSingleProduct in FakeStoreClient
+
+ - If time permits, put createproduct in FakeStoreClient as well
+
+
+[LAPTOP AND POSTMAN]
+show existing exception flow and ask, are we getting any information, on what went wrong ?
+
+Let's try throwing exception directly in service or controller layer and show stack trace on browser and discuss 2 harms
+ - client wont be able to make any sense
+ - code base leaked
+
+
+[IPAD]
+Discuss waiter example when dish is out of stock
+
+Draw diagram of various exceptions which can come at multiple places , but should be told to client from controller
+
+what is controller advice
+          -> like a watchman keeping an eye and sense if controller is going to show stacktrace , show graceful message instead
+
+
+[LAPTOP]
+ - show exception handler in product controller
+ - show restcontrolleradvice
